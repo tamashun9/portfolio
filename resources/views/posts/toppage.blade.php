@@ -12,9 +12,15 @@
             
             <h2 class="title2">人気なFPSゲームの掲示板</h3>
                     <li>                       
-                         <div class="game_title">APEX LEGENDS</div>                           
+                        
+                        <div class="game_title">
+                            
+                            <a href="posts/apex">APEX LEGENDS</a>
+                        
+                        </div>
+                                                  
                     
-                                                                                               
+                    
                         <div class="game_title">Valorant</div>                       
                      
                                                                                                 

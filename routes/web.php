@@ -12,8 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('toppage');
+    return view('/posts/toppage');
 });
-
-
 Route::get('/posts/apex', 'PostController@apex');
+Route::get('/posts/apex/{post}', 'PostController@show');

@@ -7,14 +7,21 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
+        <h1>APEXLEGENDSの掲示板</h1>
         <div class='posts'>
             @foreach ($posts as $post)
                 <div class='post'>
-                    <h2 class='title'>{{ $post->title }}</h2>
+                    <h2 class='title'>
+                        <a href="/posts/apex/{{ $post->id }}">{{ $post->title }}</a>
+                    </h2>
                     <small>{{ $post->user->name }}</small>
                     <p class='body'>{{ $post->body }}</p>
                 </div>
             @endforeach
         </div>
+        <div class='paginate'>
+            {{ $posts->links() }}
+        </div>
+       
     </body>
 </hyml>    
