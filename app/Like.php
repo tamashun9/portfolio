@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Comment extends Model
+class Like extends Model
 {
-    //Postに対するリレーション
+     //Postに対するリレーション
     public function post()
     {
         return $this->belongsTo('App/Post');

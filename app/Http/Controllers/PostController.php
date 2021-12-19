@@ -11,4 +11,9 @@ class PostController extends Controller
     {
         return $post->get();
     }
+    
+    public function apex(Post $post)
+    {
+       return view('posts/apex')->with(['posts' => $post->get()]); 
+    }
 }
