@@ -17,3 +17,6 @@ Route::get('/', function () {
 Route::get('/posts/index', 'PostController@apex');
 Route::get('/posts/{post}', 'PostController@show');
 Route::post('/posts', 'PostController@store');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
