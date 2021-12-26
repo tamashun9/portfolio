@@ -15,7 +15,7 @@
                         
                         <div class="game_title">
                             
-                            <a href="posts/apex">APEX LEGENDS</a>
+                            <a href="posts/index">APEX LEGENDS</a>
                         
                         </div>
                                                   

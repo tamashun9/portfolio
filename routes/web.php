@@ -14,5 +14,6 @@
 Route::get('/', function () {
     return view('/posts/toppage');
 });
-Route::get('/posts/apex', 'PostController@apex');
-Route::get('/posts/apex/{post}', 'PostController@show');
+Route::get('/posts/index', 'PostController@apex');
+Route::get('/posts/{post}', 'PostController@show');
+Route::post('/posts', 'PostController@store');

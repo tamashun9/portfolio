@@ -46,12 +46,12 @@ class User extends Authenticatable
     //Commentに対するリレーション
     public function Comments()
     {
-        return $this->hasMany('App/Comment');
+        return $this->hasMany('App\Comment');
     }
     
     //Likeに対するリレーション
     public function Likes()
     {
-        return $this->hasMany('App/Like');
+        return $this->hasMany('App\Like');
     }
 }

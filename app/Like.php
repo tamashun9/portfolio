@@ -9,7 +9,7 @@ class Like extends Model
      //Postに対するリレーション
     public function post()
     {
-        return $this->belongsTo('App/Post');
+        return $this->belongsTo('App\Post');
     }
     
     //Userに対するリレーション

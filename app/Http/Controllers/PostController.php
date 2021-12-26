@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
-use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
@@ -14,7 +14,8 @@ class PostController extends Controller
     
     public function apex(Post $post)
     {
-       return view('posts/apex')->with(['posts' => $post->getPaginateByLimit()]); 
+       return view('posts/index')->with(['posts' => $post->getPaginateByLimit()]);
+       return view('posts/index');
     }
     
     /**
@@ -27,4 +28,17 @@ class PostController extends Controller
     {
         return view('posts/show')->with(['post' => $post]);
     }
+    
+    
+    public function store(Post $post, PostRequest $request) 
+    {
+        $input = $request['post'];
+        $input += ['user_id' => $request->user()->id];
+        $post->fill($input)->save();
+        return redirect('/posts/' . $post->id);
+    }
+    
+        
+    
+
 }

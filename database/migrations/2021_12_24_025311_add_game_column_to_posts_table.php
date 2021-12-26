@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddGameIdToPostsTable extends Migration
+class AddGameColumnToPostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,7 @@ class AddGameIdToPostsTable extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->integer('game_id')->unsigned();    //unsigned()型で定義
-            //'game_id' は 'gtameテーブル' の 'id' を参照する外部キーです
+            $table->string('game');
         });
     }
 

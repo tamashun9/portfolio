@@ -21,20 +21,28 @@ class Post extends Model
     //Commentに対するリレーション
     public function Comments()
     {
-        return $this->hasMany('App/Comment');
+        return $this->hasMany('App\Comment');
     }
     
     //Likeに対するリレーション
     public function Likes()
     {
-        return $this->hasMany('App/Like');
+        return $this->hasMany('App\Like');
     }
     
     //Paginationインスタンスが返却される
     public function getPaginateByLimit(int $limit_count = 10)
     {
         // updated_atで降順に並べたあと、limitで件数制限をかける
-        return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
+        return $this::with('user')->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
+    
+    //投稿作成用のモデル実装
+    protected $fillable = [
+        'title',
+        'body',
+        'game',
+        'user_id'
+    ];
     
 }
