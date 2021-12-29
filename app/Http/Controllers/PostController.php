@@ -7,14 +7,14 @@ use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
-    public function index(Post $post)
+    public function toppage(Post $post)
     {
-        return $post->get();
+        return view('posts/toppage');
     }
     
-    public function apex(Post $post)
+    public function index(Post $post)
     {
-       return view('posts/index')->with(['posts' => $post->getPaginateByLimit()]);
+       return view('posts/index')->with(['posts' => $post->getPaginateByLimit(10)]);
        return view('posts/index');
     }
     
@@ -29,6 +29,18 @@ class PostController extends Controller
         return view('posts/show')->with(['post' => $post]);
     }
     
+    public function edit(Post $post)
+    {
+        return view('posts/edit')->with(['post' => $post]);
+    }
+    
+    public function update(PostRequest $request, Post $post)
+    {
+        $input_post = $request['post'];
+        $input_post += ['user_id' => $request->user()->id];
+        $post->fill($input_post)->save();
+        return redirect('/posts/' . $post->id);
+    }
     
     public function store(Post $post, PostRequest $request) 
     {
@@ -38,7 +50,6 @@ class PostController extends Controller
         return redirect('/posts/' . $post->id);
     }
     
-        
     
 
 }

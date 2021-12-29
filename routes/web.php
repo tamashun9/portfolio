@@ -10,13 +10,18 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('/posts/toppage');
+//ミドルウェアを指定
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/', 'PostController@toppage');
+    Route::get('/posts/index', 'PostController@index');
+    Route::get('/posts/{post}/edit', 'PostController@edit');
+    Route::put('/posts/{post}', 'PostController@update');
+    Route::get('/posts/{post}', 'PostController@show');
+    Route::post('/posts', 'PostController@store');
 });
-Route::get('/posts/index', 'PostController@apex');
-Route::get('/posts/{post}', 'PostController@show');
-Route::post('/posts', 'PostController@store');
-Auth::routes();
+
+
+Auth::routes(); 
+
 
 Route::get('/home', 'HomeController@index')->name('home');
