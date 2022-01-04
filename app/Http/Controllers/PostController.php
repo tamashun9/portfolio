@@ -15,7 +15,6 @@ class PostController extends Controller
     public function index(Post $post)
     {
        return view('posts/index')->with(['posts' => $post->getPaginateByLimit(10)]);
-       return view('posts/index');
     }
     
     /**
@@ -42,6 +41,8 @@ class PostController extends Controller
         return redirect('/posts/' . $post->id);
     }
     
+    
+    
     public function store(Post $post, PostRequest $request) 
     {
         $input = $request['post'];
@@ -53,3 +54,4 @@ class PostController extends Controller
     
 
 }
+

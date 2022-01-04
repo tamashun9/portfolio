@@ -6,11 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    //Gameに対するリレーション
-    public function game()
-    {
-        return $this->belongsTo('App\Game');
-    }
+    
     
     //Userに対するリレーション
     public function user()

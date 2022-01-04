@@ -12,19 +12,54 @@
         @extends('layouts.app')　　　　　　　　　　　　　　　　　　
 
         @section('content')
-        <h1 class="title">
-            {{ $post->title }}
-        </h1>
-        <div class="content">
-            <div class="content__post">
-                <h3>本文</h3>
-                <p>{{ $post->body }}</p>    
+            <h1 class="title">
+                {{ $post->title }}
+            </h1>
+            
+            <p>{{ $post->game }}</p>
+            <div class="content">
+                <div class="content__post">
+                    <h3>本文</h3>
+                    <p>{{ $post->body }}</p>    
+                </div>
             </div>
-        </div>
-        <p class="edit">[<a href="/posts/{{ $post->id }}/edit">編集</a>]</p>
-        <div class="footer">
-            <a href="/posts/index">戻る</a>
-        </div>
+            <p class="edit">[<a href="/posts/{{ $post->id }}/edit">編集</a>]</p>
+            
+          
+    
+            <h2>コメント一覧</h2>
+            
+              @forelse ($post->comments as $comment)
+              <p>{{ $comment->body }}</p>
+              <p>投稿者:{{ $comment->user->name }}</p>
+                           
+              @empty
+              <p>まだコメントはありません</p>
+              @endforelse
+            
+            
+            
+            <h2>コメントする</h2>
+            <form method="POST" action="{{ action('CommentController@store', $post->id) }}">
+                @csrf
+                <div>
+                    
+                    <input class="form-control" type="text" name="body" placeholder="body" value="{{ old('body') }}">
+                
+                </div>
+                
+                    
+                <p>
+                    @if ($errors->has('body'))
+                    <span class="error" style="color:red">{{ $errors->first('body') }}</span>
+                    @endif
+                </p>
+              
+                
+                <button type="submit" class="btn btn-primary">送信</button>
+                
+            </form>
+            <p><a href="/posts/index">戻る</a></p>
         @endsection
     </body>
 </html>
