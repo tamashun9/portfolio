@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddImageColumnToPostsTable extends Migration
+class CreateCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,13 @@ class AddImageColumnToPostsTable extends Migration
      */
     public function up()
     {
-        Schema::table('likes', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('body', 255);
             $table->timestamps();
+            $table->softDeletes();
+            $table->bigInteger('user_id')->unsigned();
+            $table->integer('post_id')->unsigned();
         });
     }
 
@@ -25,8 +30,6 @@ class AddImageColumnToPostsTable extends Migration
      */
     public function down()
     {
-        Schema::table('likes', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('comments');
     }
 }
