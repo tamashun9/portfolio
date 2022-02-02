@@ -14,7 +14,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header"><h1 class="card-title">脱FPS初心者するため掲示板</h1></div>      
+                        <div class="card-header"><h1 class="card-title">脱FPS初心者するための掲示板</h1></div>      
                         <div class="card-body">
                             @foreach ($posts as $post)
                                 <div class="card">

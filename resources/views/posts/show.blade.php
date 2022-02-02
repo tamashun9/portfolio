@@ -16,7 +16,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header"><h1 class="card-title">脱FPS初心者するため掲示板</h3></div>          
+                        <div class="card-header"><h1 class="card-title">脱FPS初心者するための掲示板</h3></div>          
                             <div class="card-body">
                                     <div class="card">
                                         <div class="card-header"><h5 class="card-title">投稿者:{{ $post->user->name }}</h6></div>
