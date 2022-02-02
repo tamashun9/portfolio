@@ -12,14 +12,16 @@
 */
 //ミドルウェアを指定
 Route::group(['middleware' => 'auth'], function(){
-    Route::get('/', 'PostController@toppage');
-    Route::get('/posts/index', 'PostController@index');
+    Route::get('/', 'PostController@index');
     Route::get('/posts/{post}/edit', 'PostController@edit');
     Route::put('/posts/{post}', 'PostController@update');
     Route::delete('/posts/{post}', 'PostController@delete');
     Route::get('/posts/{post}', 'PostController@show');
     Route::post('/posts', 'PostController@store');
+    Route::get('/posts/like/{id}', 'PostController@like')->name('post.like');
+    Route::get('/posts/unlike/{id}', 'PostController@unlike')->name('post.unlike');
     Route::post('/posts/{post}/comments', 'CommentController@store');
+    
 });
 
 

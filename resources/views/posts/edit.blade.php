@@ -2,30 +2,43 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <title>Blog</title>
+        <title>脱FPS初心者するため掲示板</title>
     </head>
    <body>
        @extends('layouts.app')　　　　　　　　　　　　　　　　　　
 
        @section('content')
-            <h1 class="title">編集画面</h1>
-            <div class="content">
-                <form action="/posts/{{ $post->id }}" method="POST">
-                    @csrf
-                    @method('PUT')
-                    <div class='content__title'>
-                        <h2>タイトル</h2>
-                        <input type='text' name='post[title]' value="{{ $post->title }}">
-                    </div>
-                    <div class='content__body'>
-                        <h2>本文</h2>
-                        <input type='text' name='post[body]' value="{{ $post->body }}">
-                    </div>
-                    <input type="submit" value="保存">
-                </form>
-                <div class="back">[<a href="/posts/index">back</a>]</div>
-                
+        <div class="container">
+            <div class="row justify-content-center">        
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header"><h1 class="card-title">脱FPS初心者するため掲示板</h3></div>             
+                        <div class="card-body">
+                            <div class="card">    
+                                <form action="/posts/{{ $post->id }}" method="POST">
+                                    @csrf
+                                    @method('PUT')
+                                    <div class='card-body'>
+                                        <h5 class="card-title">タイトル</h5>
+                                        <input　class="form-control"  type='text' name='post[title]' value="{{ $post->title }}">
+                                    </div>
+                                    <div class='card-body'>
+                                        <h5 class="card-title">ゲームタイトル</h5>
+                                        <input　class="form-control"  type='text' name='post[game]' value="{{ $post->game }}">
+                                    </div>
+                                    <div class='card-body'>
+                                        <h5 class="card-title">本文</h5>
+                                        <input　class="form-control"  type='text' name='post[body]' value="{{ $post->body }}">
+                                    </div>
+                                    <input type="submit" value="保存">
+                                </form>
+                                <div class="back">[<a href="/">戻る</a>]</div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>        
             </div>
+        </div>    
         @endsection
     </body>
    
