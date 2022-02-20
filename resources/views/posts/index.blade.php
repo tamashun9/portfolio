@@ -66,7 +66,7 @@
                                 <div class="card-header"><h3 class="card-title">初心者におすすめなFPSゲーム紹介</h3></div>
                                 <div class="card-body">
                                     <h5 class="card-title">Apex Legends</h5>
-                                    <p class='card-text'>現在、日本で最も人気なるFPSゲームです。操作面でもルールでも比較的簡単で分かりやすいゲームなので初心者でも始めやすいゲーム。</p>
+                                    <p class='card-text'>現在、日本で最も人気のあるFPSゲームです。操作面でもルールでも比較的簡単で分かりやすいゲームなので初心者でも始めやすいゲーム。</p>
                                     <p class='card-text'>
                                         <iframe id="player" width="560" height="315" src="https://www.youtube.com/embed/1R559DWBYbU?enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                     </p>
