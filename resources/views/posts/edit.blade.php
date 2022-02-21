@@ -14,6 +14,8 @@
                     <div class="card">
                         <div class="card-header"><h1 class="card-title">脱FPS初心者するための掲示板</h3></div>             
                         <div class="card-body">
+                            
+                            <!--編集機能-->
                             <div class="card">    
                                 <form action="/posts/{{ $post->id }}" method="POST">
                                     @csrf

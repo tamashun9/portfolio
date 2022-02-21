@@ -18,6 +18,8 @@
                     <div class="card">
                         <div class="card-header"><h1 class="card-title">脱FPS初心者するための掲示板</h3></div>          
                             <div class="card-body">
+                                
+                                    <!--詳細表示-->
                                     <div class="card">
                                         <div class="card-header"><h5 class="card-title">投稿者:{{ $post->user->name }}</h6></div>
                                         <div class="card-body">
@@ -25,8 +27,10 @@
                                             <h5 class="card-title">{{ $post->game }}</h5>
                                             <p class='card-text'>{{ $post->body }}</p>
                                             
-                                                
+                                            <!--いいね数のカウント-->    
                                             {{ $post->likes->count() }}
+                                            
+                                            <!--いいね機能-->
                                             <div>
                                                 @if($post->is_liked_by_auth_user())
                                                     <a href="{{ route('post.unlike', ['id' => $post->id]) }}" class="btn btn-success btn-sm">いいね<span class="badge">{{ $post->likes->count() }}</span></a>
@@ -34,8 +38,11 @@
                                                     <a href="{{ route('post.like', ['id' => $post->id]) }}" class="btn btn-secondary btn-sm">いいね<span class="badge">{{ $post->likes->count() }}</span></a>
                                                 @endif
                                             </div>
+                                            
                                                 
                                             <p class="edit">[<a href="/posts/{{ $post->id }}/edit">編集</a>]</p>
+                                            
+                                            <!--投稿削除機能-->
                                             <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}"method="post" style="display:inline">
                                                 {{ csrf_field() }}
                                                 {{ method_field('DELETE') }}
@@ -48,7 +55,7 @@
                                       
                                 
                                     <div class="p-3">
-                                        
+                                        <!--コメント一覧表示-->
                                         <div class="card">
                                             <div class="card-header"><h3 class="card-title">アドバイス一覧</h5></div>
                                                 <div class="card-body">
@@ -62,7 +69,7 @@
                                         </div>
                                     </div>    
                                     
-                                   
+                                    <!--コメント投稿機能-->                                   
                                     <form action="{{ action('CommentController@store', $post->id) }}" method="POST">
                                         <div class="card">
                                             <div class="card-header"><h3 class="card-title">アドバイスする</h5></div>
